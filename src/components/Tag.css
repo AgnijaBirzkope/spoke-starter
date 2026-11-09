@@ -1,0 +1,12 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-pill);
+  color: var(--color-tag-text);
+  background: var(--color-tag-background);
+  font-size: var(--font-size-tag);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tag);
+  white-space: nowrap;
+}
