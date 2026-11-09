@@ -17,9 +17,10 @@
 }
 
 .time-slot--selected {
+  height: 44px;
   min-height: 44px;
   min-width: 70px;
-  border-color: var(--color-brand);
+  border: 0;
   color: var(--color-on-brand);
   background: var(--color-brand);
 }

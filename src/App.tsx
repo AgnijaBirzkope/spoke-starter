@@ -1,10 +1,10 @@
-import { ComponentLibraryPage } from './pages/ComponentLibraryPage'
+import { PickSlotPage } from './pages/PickSlotPage'
 import './App.css'
 
 function App() {
   return (
     <div className="app">
-      <ComponentLibraryPage />
+      <PickSlotPage />
     </div>
   )
 }
