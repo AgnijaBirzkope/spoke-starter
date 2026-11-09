@@ -1,10 +1,10 @@
-import { ChooseServicePage } from './pages/ChooseServicePage'
+import { ComponentLibraryPage } from './pages/ComponentLibraryPage'
 import './App.css'
 
 function App() {
   return (
     <div className="app">
-      <ChooseServicePage />
+      <ComponentLibraryPage />
     </div>
   )
 }

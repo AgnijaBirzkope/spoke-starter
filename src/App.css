@@ -2,6 +2,5 @@
   box-sizing: border-box;
   display: grid;
   min-height: 100svh;
-  place-items: center;
   background: var(--color-canvas);
 }
