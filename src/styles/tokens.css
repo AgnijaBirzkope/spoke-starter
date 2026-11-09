@@ -1,5 +1,6 @@
 :root {
   --color-surface: #ffffff;
+  --color-canvas: #eeeeee;
   --color-border: #e4e0d8;
   --color-text-primary: #1a1a1a;
   --color-text-muted: #6b6660;
@@ -24,11 +25,13 @@
   --font-size-body: 15px;
   --font-size-button: 16px;
   --font-size-title: 20px;
+  --font-size-screen-title: 28px;
   --line-height-tag: 18px;
   --line-height-caption: 20px;
   --line-height-body: 22px;
   --line-height-button: 24px;
   --line-height-title: 28px;
+  --line-height-screen-title: 34px;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;

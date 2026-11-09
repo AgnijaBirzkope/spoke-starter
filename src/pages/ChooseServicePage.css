@@ -1,0 +1,59 @@
+.choose-service-page {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  max-width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.choose-service-page .top-bar,
+.choose-service-page .action-bar {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.choose-service-page__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-20);
+}
+
+.choose-service-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.choose-service-page__header h2,
+.choose-service-page__header p {
+  margin: 0;
+}
+
+.choose-service-page__header h2 {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-screen-title);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-screen-title);
+}
+
+.choose-service-page__header p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.choose-service-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.choose-service-page__list .service-card {
+  width: 100%;
+}

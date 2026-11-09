@@ -2,7 +2,6 @@
   box-sizing: border-box;
   display: grid;
   min-height: 100svh;
-  padding: var(--space-24);
   place-items: center;
-  background: #eeeeee;
+  background: var(--color-canvas);
 }
