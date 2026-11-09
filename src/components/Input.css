@@ -25,8 +25,22 @@
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   outline: none;
+  transition: border-color var(--motion-input);
 }
 
 .input-field__control::placeholder { color: var(--color-text-muted); opacity: 1; }
+.input-field__control:focus::placeholder { opacity: 0; }
 .input-field__control--focus,
 .input-field__control:focus { border: 2px solid var(--color-brand); padding: 11px 15px; }
+.input-field__control--error,
+.input-field__control--error:focus { border: 2px solid var(--color-error); padding: 11px 15px; }
+
+.input-field__error {
+  color: var(--color-error);
+  font-size: var(--font-size-tag);
+  line-height: var(--line-height-tag);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input-field__control { transition: none; }
+}

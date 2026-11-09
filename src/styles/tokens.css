@@ -7,6 +7,7 @@
   --color-brand: #e8552b;
   --color-brand-hover: #cf4621;
   --color-brand-active: #b83d1c;
+  --color-error: #b42318;
   --color-on-brand: #ffffff;
   --color-tag-background: #fcebe4;
   --color-tag-text: #b23e16;
@@ -37,5 +38,6 @@
   --font-weight-semibold: 600;
   --shadow-card-hover: 0 12px 24px rgba(26, 26, 26, 0.12);
   --motion-card-hover: 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-input: 120ms ease;
   --layout-library-max: 1120px;
 }
