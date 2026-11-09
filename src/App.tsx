@@ -1,10 +1,10 @@
-import { PickSlotPage } from './pages/PickSlotPage'
+import { ConfirmBookingPage } from './pages/ConfirmBookingPage'
 import './App.css'
 
 function App() {
   return (
     <div className="app">
-      <PickSlotPage />
+      <ConfirmBookingPage />
     </div>
   )
 }
