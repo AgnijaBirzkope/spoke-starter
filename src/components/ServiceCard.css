@@ -14,9 +14,24 @@
   font: inherit;
   text-align: left;
   cursor: pointer;
+  transition:
+    transform var(--motion-card-hover),
+    box-shadow var(--motion-card-hover);
 }
 
 .service-card--selected { border: 2px solid var(--color-brand); padding: 15px; }
+
+@media (hover: hover) {
+  .service-card:not(.service-card--selected):hover {
+    transform: translateY(calc(var(--space-4) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card { transition: none; }
+}
+
 .service-card__header { display: flex; align-items: center; gap: var(--space-12); width: 100%; font-size: var(--font-size-title); line-height: var(--line-height-title); }
 .service-card__header strong:first-child { flex: 1; }
 .service-card__description { color: var(--color-text-muted); font-size: var(--font-size-body); line-height: var(--line-height-body); }
