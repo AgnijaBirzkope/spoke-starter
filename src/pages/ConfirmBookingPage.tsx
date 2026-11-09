@@ -1,10 +1,19 @@
 import { ActionBar, Input, SummaryRow, TopBar } from '../components'
 import './ConfirmBookingPage.css'
 
-export function ConfirmBookingPage() {
+type ConfirmBookingPageProps = {
+  serviceTitle: string
+  price: string
+  selectedDay: string
+  selectedTime: string
+  onBack: () => void
+  onConfirm?: () => void
+}
+
+export function ConfirmBookingPage({ serviceTitle, price, selectedDay, selectedTime, onBack, onConfirm }: ConfirmBookingPageProps) {
   return (
     <div className="confirm-booking-page">
-      <TopBar step="Step 3 of 3" />
+      <TopBar step="Step 3 of 3" onBack={onBack} />
 
       <main className="confirm-booking-page__content">
         <header className="confirm-booking-page__header">
@@ -12,9 +21,9 @@ export function ConfirmBookingPage() {
         </header>
 
         <section className="confirm-booking-page__summary" aria-label="Booking summary">
-          <SummaryRow label="Service" value="Flat tyre repair" />
-          <SummaryRow label="Drop-off" value="Today at 16:30" />
-          <SummaryRow label="Price" value="€15, pay at pick-up" />
+          <SummaryRow label="Service" value={serviceTitle} />
+          <SummaryRow label="Drop-off" value={`${selectedDay} at ${selectedTime}`} />
+          <SummaryRow label="Price" value={`${price}, pay at pick-up`} />
         </section>
 
         <Input label="Your name" name="name" autoComplete="name" placeholder="First and last name" />
@@ -31,7 +40,7 @@ export function ConfirmBookingPage() {
         <p className="confirm-booking-page__note">We text you when your bike is ready. You pay when you pick it up.</p>
       </main>
 
-      <ActionBar label="Confirm booking" />
+      <ActionBar label="Confirm booking" onAction={onConfirm} />
     </div>
   )
 }

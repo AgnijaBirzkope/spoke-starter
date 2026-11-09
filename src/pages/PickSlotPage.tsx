@@ -1,29 +1,28 @@
-import { useState } from 'react'
 import { ActionBar, TimeSlot, TopBar } from '../components'
+import { days, times, type Day, type DropOffTime } from './bookingData'
 import './PickSlotPage.css'
 
-const days = ['Today', 'Tomorrow', 'Mon 16'] as const
-const times = [
-  { label: '09:00', disabled: true },
-  { label: '10:30', disabled: true },
-  { label: '12:00', disabled: false },
-  { label: '14:00', disabled: false },
-  { label: '16:30', disabled: false },
-  { label: '17:30', disabled: false },
-] as const
+type PickSlotPageProps = {
+  serviceTitle: string
+  serviceDuration: string
+  selectedDay: Day
+  selectedTime: DropOffTime
+  onSelectDay: (day: Day) => void
+  onSelectTime: (time: DropOffTime) => void
+  onBack: () => void
+  onContinue: () => void
+}
 
-export function PickSlotPage() {
-  const [selectedDay, setSelectedDay] = useState<string>('Today')
-  const [selectedTime, setSelectedTime] = useState<string>('16:30')
+export function PickSlotPage({ serviceTitle, serviceDuration, selectedDay, selectedTime, onSelectDay, onSelectTime, onBack, onContinue }: PickSlotPageProps) {
 
   return (
     <div className="pick-slot-page">
-      <TopBar step="Step 2 of 3" />
+      <TopBar step="Step 2 of 3" onBack={onBack} />
 
       <main className="pick-slot-page__content">
         <header className="pick-slot-page__header">
           <h2>Pick a drop-off time</h2>
-          <p>Flat tyre repair, about 30 minutes</p>
+          <p>{serviceTitle}, about {serviceDuration}</p>
         </header>
 
         <section className="pick-slot-page__group" aria-labelledby="day-label">
@@ -34,7 +33,7 @@ export function PickSlotPage() {
                 key={day}
                 label={day}
                 state={selectedDay === day ? 'selected' : 'default'}
-                onClick={() => setSelectedDay(day)}
+                onClick={() => onSelectDay(day)}
               />
             ))}
           </div>
@@ -48,7 +47,7 @@ export function PickSlotPage() {
                 key={label}
                 label={label}
                 state={disabled ? 'disabled' : selectedTime === label ? 'selected' : 'default'}
-                onClick={() => setSelectedTime(label)}
+                onClick={() => onSelectTime(label)}
               />
             ))}
           </div>
@@ -57,7 +56,7 @@ export function PickSlotPage() {
         <p className="pick-slot-page__note">Ready the same day. We text you when your bike is done.</p>
       </main>
 
-      <ActionBar label="Continue" />
+      <ActionBar label="Continue" onAction={onContinue} />
     </div>
   )
 }

@@ -1,44 +1,19 @@
-import { useState } from 'react'
 import { ActionBar, ServiceCard, TopBar } from '../components'
+import { services, type ServiceId } from './bookingData'
 import './ChooseServicePage.css'
 
-const services = [
-  {
-    id: 'flat-tyre',
-    title: 'Flat tyre repair',
-    description: 'Tube or tyre swap, any wheel size.',
-    duration: '30 min',
-    price: '€15',
-  },
-  {
-    id: 'brake-check',
-    title: 'Brake check and adjust',
-    description: 'Pads, cables and alignment.',
-    duration: '45 min',
-    price: '€25',
-  },
-  {
-    id: 'gear-tune-up',
-    title: 'Gear tune-up',
-    description: 'Smooth shifting on every gear.',
-    duration: '45 min',
-    price: '€30',
-  },
-  {
-    id: 'full-service',
-    title: 'Full service',
-    description: 'Everything checked, cleaned and adjusted.',
-    duration: '2 hours',
-    price: '€89',
-  },
-] as const
+type ChooseServicePageProps = {
+  selectedService: ServiceId
+  onSelectService: (service: ServiceId) => void
+  onBack?: () => void
+  onContinue: () => void
+}
 
-export function ChooseServicePage() {
-  const [selectedService, setSelectedService] = useState<string>('flat-tyre')
+export function ChooseServicePage({ selectedService, onSelectService, onBack, onContinue }: ChooseServicePageProps) {
 
   return (
     <div className="choose-service-page">
-      <TopBar />
+      <TopBar onBack={onBack} />
 
       <main className="choose-service-page__content">
         <header className="choose-service-page__header">
@@ -55,13 +30,13 @@ export function ChooseServicePage() {
               duration={service.duration}
               price={service.price}
               state={selectedService === service.id ? 'selected' : 'default'}
-              onClick={() => setSelectedService(service.id)}
+              onClick={() => onSelectService(service.id)}
             />
           ))}
         </div>
       </main>
 
-      <ActionBar label="Continue" />
+      <ActionBar label="Continue" onAction={onContinue} />
     </div>
   )
 }
